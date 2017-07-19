@@ -48,6 +48,7 @@ def heart_beat():
 def train_and_save_kronos():
     app.logger.info("Submitting the training job")
     input_json = request.get_json()
+    app.logger.info(input_json)
     training_data_url = input_json.get("training_data_url")
 
     response = submit_job(input_bootstrap_file='/bootstrap_action.sh',
