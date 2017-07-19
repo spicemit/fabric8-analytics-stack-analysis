@@ -1,5 +1,6 @@
 import logging
 import sys
+import time
 
 import flask
 from flask import Flask, request, current_app
@@ -42,6 +43,11 @@ def load_model():
 @app.route('/')
 def heart_beat():
     return flask.jsonify({"status": "ok"})
+
+@app.route('/wait')
+def heart_beat():
+    time.sleep(40)
+    return flask.jsonify({"status": "ok", "waited": "40 seconds"})
 
 
 @app.route('/api/v1/schemas/kronos_training', methods=['POST'])
