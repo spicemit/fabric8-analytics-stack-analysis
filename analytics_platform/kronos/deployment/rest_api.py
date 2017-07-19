@@ -69,7 +69,8 @@ def predict_and_score():
     input_json = request.get_json()
     print("Analyzing the given EPV")
     print(input_json)
-    app.logger.info("Analyzing the given EPV")
+    app.logger.error("Analyzing the given EPV")
+    app.logger.error(input_json)
     
 
     response = score_eco_user_package_dict(user_request=input_json,
