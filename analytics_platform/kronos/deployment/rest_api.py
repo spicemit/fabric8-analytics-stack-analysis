@@ -46,7 +46,9 @@ def heart_beat():
 
 @app.route('/wait')
 def lets_wait():
+    print("Inside Wait API")
     time.sleep(40)
+    
     return flask.jsonify({"status": "ok", "waited": "40 seconds"})
 
 
@@ -65,7 +67,10 @@ def train_and_save_kronos():
 @app.route('/api/v1/schemas/kronos_scoring', methods=['POST'])
 def predict_and_score():
     input_json = request.get_json()
+    print("Analyzing the given EPV")
+    print(input_json)
     app.logger.info("Analyzing the given EPV")
+    
 
     response = score_eco_user_package_dict(user_request=input_json,
                                            user_eco_kronos_dict=current_app.user_eco_kronos_dict,
