@@ -69,14 +69,20 @@ def predict_and_score():
     input_json = request.get_json()
     print("Analyzing the given EPV")
     print(input_json)
+    app.logger.error("**********************************")
     app.logger.error("Analyzing the given EPV")
     app.logger.error(input_json)
+    app.logger.error(current_app.user_eco_kronos_dict)
+    app.logger.error(current_app.eco_to_kronos_dependency_dict)
+    app.logger.error("**********************************")
     
-
     response = score_eco_user_package_dict(user_request=input_json,
                                            user_eco_kronos_dict=current_app.user_eco_kronos_dict,
                                            eco_to_kronos_dependency_dict=current_app.eco_to_kronos_dependency_dict)
 
+    app.logger.error("**********************************")
+    app.logger.error(response)
+    app.logger.error("**********************************")
     return flask.jsonify(response)
 
 
