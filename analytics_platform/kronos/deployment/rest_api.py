@@ -45,7 +45,7 @@ def heart_beat():
     return flask.jsonify({"status": "ok"})
 
 @app.route('/wait')
-def heart_beat():
+def lets_wait():
     time.sleep(40)
     return flask.jsonify({"status": "ok", "waited": "40 seconds"})
 
